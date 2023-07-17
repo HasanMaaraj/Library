@@ -8,7 +8,8 @@ function Book(title, author, pages, status) {
 }
 
 const myBook = new Book('my book', 'hasan', 6, 'Not Read')
-addBookToLibrary(myBook, 0)
+myLibrary.push(myBook)
+addBookToLibrary(myLibrary[0], 0)
 
 function addBookToLibrary(book, index) {
     bookCard = document.createElement('div');
@@ -46,6 +47,15 @@ function addBookToLibrary(book, index) {
     bookCard.appendChild(deleteButton)
 
     document.getElementById('library').appendChild(bookCard)
+}
+
+
+function changeStatus(index) {
+    if (myLibrary[index].status === 'Read') {
+        myLibrary[index].status = "Not Read"
+    } else {
+        myLibrary[index].status = "Read"
+    }
 }
 
 const form = document.getElementById('new-book-form')
