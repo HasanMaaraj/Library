@@ -33,7 +33,7 @@ function addBookToLibrary(book, index) {
     statusButton.dataset.book = index;
     statusButton.textContent = book.status;
     statusButton.addEventListener('click', () => {
-        // changeStatus(index);
+        changeStatus(index);
         statusButton.textContent = myLibrary[index].status;
     })
     bookCard.appendChild(statusButton)
@@ -42,7 +42,7 @@ function addBookToLibrary(book, index) {
     deleteButton.textContent = 'Delete';
     deleteButton.dataset.book = index;
     deleteButton.addEventListener('click', () => {
-        // deleteBook(index)
+        deleteBook(index)
     })
     bookCard.appendChild(deleteButton)
 
@@ -57,6 +57,12 @@ function changeStatus(index) {
         myLibrary[index].status = "Read"
     }
 }
+
+function deleteBook(index) {
+    myLibrary.splice(index, 1)
+    document.querySelector(`.book-card[data-book="${index}]"`).remove()
+}
+
 
 const form = document.getElementById('new-book-form')
 form.addEventListener('submit', (e) => {
