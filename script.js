@@ -18,11 +18,17 @@ Book.prototype.changeStatus = function() {
 const myBook = new Book('my book', 'hasan', 100, 'Read')
 myLibrary.push(myBook)
 
-// Display all books in the array
-for(let i=0; i < myLibrary.length; i++) {
-    displayBook(myLibrary[i], i);
+const myOtherBook = new Book('my other book', 'hasan', 200, 'Not Read')
+myLibrary.push(myOtherBook)
+
+function displayAllBooks() {
+    // Display all books in the array
+    for(let i=0; i < myLibrary.length; i++) {
+        displayBook(myLibrary[i], i);
+    }
 }
 
+displayAllBooks();
 
 const form = document.getElementById('new-book-form')
 form.addEventListener('submit', (e) => {
