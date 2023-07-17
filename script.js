@@ -75,6 +75,9 @@ form.addEventListener('submit', (e) => {
     const author = form.querySelector('input[name="author"]').value;
     const pages = parseInt(form.querySelector('input[name="pages"]').value);
     const status = form.querySelector('select[name="status"]').value;
+    form.querySelector('input[name="title"]').value = '';
+    form.querySelector('input[name="author"]').value = '';
+    form.querySelector('input[name="pages"]').value = '';
     newBook = new Book(title, author, pages, status)
     myLibrary.push(newBook)
     addBookToLibrary(newBook, myLibrary.length-1)
