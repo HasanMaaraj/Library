@@ -30,3 +30,21 @@ input {
 form>button {
     padding: 5px;
 }
+
+#library {
+    margin: 24px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 20%));
+}
+
+.book-card {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px grey;
+}
