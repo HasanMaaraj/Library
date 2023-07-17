@@ -7,9 +7,20 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
-const myBook = new Book('my book', 'hasan', 6, 'Not Read')
+Book.prototype.changeStatus = function() {
+    if (this.status === 'Read') {
+        this.status = "Not Read"
+    } else {
+        this.status = "Read"
+    }
+}
+
+const myBook = new Book('my book', 'hasan', 100, 'Read')
 myLibrary.push(myBook)
-addBookToLibrary(myLibrary[0], 0)
+
+for(let i=0; i < myLibrary.length; i++) {
+    addBookToLibrary(myLibrary[i], i);
+}
 
 
 
@@ -35,8 +46,8 @@ function addBookToLibrary(book, index) {
     statusButton.dataset.book = index;
     statusButton.textContent = book.status;
     statusButton.addEventListener('click', () => {
-        changeStatus(index);
-        statusButton.textContent = myLibrary[index].status;
+        book.changeStatus();
+        statusButton.textContent = book.status;
     })
     bookCard.appendChild(statusButton)
 
@@ -52,14 +63,6 @@ function addBookToLibrary(book, index) {
     document.getElementById('library').appendChild(bookCard)
 }
 
-
-function changeStatus(index) {
-    if (myLibrary[index].status === 'Read') {
-        myLibrary[index].status = "Not Read"
-    } else {
-        myLibrary[index].status = "Read"
-    }
-}
 
 function deleteBook(index) {
     myLibrary.splice(index, 1)
