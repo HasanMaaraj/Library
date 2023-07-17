@@ -41,6 +41,7 @@ function addBookToLibrary(book, index) {
     bookCard.appendChild(statusButton)
 
     const deleteButton = document.createElement('button')
+    deleteButton.className = 'delete-button'
     deleteButton.textContent = 'Delete';
     deleteButton.dataset.book = index;
     deleteButton.addEventListener('click', () => {
@@ -74,6 +75,7 @@ form.addEventListener('submit', (e) => {
     const author = form.querySelector('input[name="author"]').value;
     const pages = parseInt(form.querySelector('input[name="pages"]').value);
     const status = form.querySelector('select[name="status"]').value;
-    newBook = Book(title, author, pages, status)
+    newBook = new Book(title, author, pages, status)
     myLibrary.push(newBook)
+    addBookToLibrary(newBook, myLibrary.length-1)
 })
