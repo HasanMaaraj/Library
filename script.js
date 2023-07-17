@@ -11,6 +11,8 @@ const myBook = new Book('my book', 'hasan', 6, 'Not Read')
 myLibrary.push(myBook)
 addBookToLibrary(myLibrary[0], 0)
 
+
+
 function addBookToLibrary(book, index) {
     bookCard = document.createElement('div');
     bookCard.className = 'book-card';
@@ -60,7 +62,8 @@ function changeStatus(index) {
 
 function deleteBook(index) {
     myLibrary.splice(index, 1)
-    document.querySelector(`.book-card[data-book="${index}]"`).remove()
+    document.querySelector(`.book-card[data-book="${index}"]`).remove();
+    
 }
 
 
